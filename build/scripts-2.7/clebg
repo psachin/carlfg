@@ -1,0 +1,109 @@
+#!/usr/bin/python -tt
+
+import wx
+from cg import ClebschGordan
+import math
+
+# every thing in wx should be in class
+class cg(wx.Frame):
+    # create constructor
+    def __init__(self,parent,id):
+        wx.Frame.__init__(self,parent,id,'Clebsch-Gordon', size=(250,300))
+
+        # create a panel
+        self.panel=wx.Panel(self)
+
+        # create an exit button
+        ok_button=wx.Button(self.panel,label="execute",pos=(90,240),size=(70,30))
+
+        # bind an event to a button 
+        self.panel.Bind(wx.EVT_BUTTON, self.okButton, ok_button)
+
+        # bind an event to close button
+        self.Bind(wx.EVT_CLOSE, self.closewindow)
+
+        # frame border
+        wx.StaticBox(self.panel, -1, 'User input', (5, 3), size=(240,290))
+        # image name input box
+        name = wx.StaticText (self.panel, -1, u'Image name:', pos = (15,42))
+        self.imageName=wx.TextCtrl(self.panel, -1, "image.png", (120,40),(120,-1))
+        # j1 and j2 input box
+        name = wx.StaticText (self.panel, -1, u'j1:', pos = (15,85))
+        self.j1=wx.TextCtrl(self.panel, -1, "0.5", (120,80),(120,-1))
+        name = wx.StaticText (self.panel, -1, u'j2:', pos = (15,112))
+        self.j2=wx.TextCtrl(self.panel, -1, "0.5", (120,110),(120,-1))
+        # cell width and height input box
+        name = wx.StaticText (self.panel, -1, u'cellWidth:', pos = (15,147))
+        self.cellWidth=wx.TextCtrl(self.panel, -1, "Default", (120,140),(120,-1))
+        name = wx.StaticText (self.panel, -1, u'cellHeight:', pos = (15,177))
+        self.cellHeight=wx.TextCtrl(self.panel, -1, "Default", (120,170),(120,-1))
+
+
+    def correctionBox(self,k,j):
+        "user alert box"
+        box=wx.MessageDialog(self.panel,"%s must be a multiple of 1/2.\nGoing with %s = 1/2." %(k,k),"%s" %(k),wx.YES_NO | wx.ICON_QUESTION)
+        if box.ShowModal()==wx.ID_YES:
+            box.Destroy()
+        else:
+            pass
+
+    def validate(self,k,j):
+        '''validate the value of j1 and j2'''
+        validateJ = lambda j: math.floor(j/.5) == j/.5
+	
+        try:
+            j = float(j)
+            if not validateJ(j):
+                j = .5
+                self.correctionBox(k,j)
+                # put dialog box here
+                # error_j=wx.StaticText(self.panel,wx.NewId(),"j1 must be a multiple of 1/2, idiot.\nGoing with %s = 1/2." %(k),pos = (20,250))
+                # error_j.SetForegroundColour('red')
+        except:
+            j = .5
+            error_j=wx.StaticText(self.panel,wx.NewId(),"Invalid value of %s input.\nGoing with %s = 1/2." %(k,k),pos = (20,250))
+            error_j.SetForegroundColour('red')
+
+        return j
+
+    def okButton(self,event):
+        '''
+        this is called when close button is clicked
+        '''
+        path=self.imageName.GetValue()
+
+        js = {'j1':self.j1.GetValue(),
+              'j2':self.j2.GetValue()}
+
+        for k, v in js.iteritems():
+            js[k]=self.validate(k,v)
+
+        # validation required
+        cellWidth=self.cellWidth.GetValue()
+        cellHeight=self.cellHeight.GetValue()
+
+        print path,js['j1'],js['j2'],cellWidth,cellHeight
+
+        obj_ClebschGordan=ClebschGordan.execute(path,\
+                                                    float(js['j1']),\
+                                                    float(js['j2']),\
+                                                    cellWidth,\
+                                                    cellHeight)
+
+
+        self.Close(True)
+
+    def closewindow(self, event):
+        self.Destroy()
+
+if __name__=='__main__':
+    '''
+    every wx has two objects,
+    1) an application object: which runs the program
+    2) a frame object: which displays the program
+    '''
+    app = wx.App(False)         # application oblect
+    frame=cg(parent=None,id=-1) # frame object
+    frame.Show()                # this shows the app
+    app.MainLoop()              # this runs the app
+

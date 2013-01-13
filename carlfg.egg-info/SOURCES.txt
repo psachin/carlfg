@@ -1,14 +1,16 @@
 CHANGES.txt
 LICENSE.rst
 MANIFEST.in
-README.txt
+README
 setup.py
 bin/cg
+bin/clebg
 carlfg.egg-info/PKG-INFO
 carlfg.egg-info/SOURCES.txt
 carlfg.egg-info/dependency_links.txt
 carlfg.egg-info/not-zip-safe
 carlfg.egg-info/top_level.txt
+cg/ClebschGordan.py
 cg/__init__.py
 cg/german.py
 docs/HOWTO.rst
