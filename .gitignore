@@ -1,0 +1,13 @@
+# .gitignore for carlfg
+# ignore files and dirs globally
+
+*~
+*.pyc
+.DS_Store
+*.egg-info
+
+
+dist/
+build/
+
+

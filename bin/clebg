@@ -1,8 +1,9 @@
-#!/usr/bin/python -tt
+#!/usr/bin/env python -tt
 
 import wx
 from cg import ClebschGordan
 import math
+import os 
 
 # every thing in wx should be in class
 class cg(wx.Frame):
@@ -82,8 +83,8 @@ class cg(wx.Frame):
         cellWidth=self.cellWidth.GetValue()
         cellHeight=self.cellHeight.GetValue()
 
-        print path,js['j1'],js['j2'],cellWidth,cellHeight
-
+        #print path,js['j1'],js['j2'],cellWidth,cellHeight
+        print "image saved in: " + os.getcwd() + '/' + path
         obj_ClebschGordan=ClebschGordan.execute(path,\
                                                     float(js['j1']),\
                                                     float(js['j2']),\

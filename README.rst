@@ -38,8 +38,11 @@ Installation
 
 Install using PyPI::
 
-  easy_install carlfg
+  pip install carlfg
 
+to uninstall::
+  
+  pip uninstall carlfg
 
 source code at `github.com/psachin/carlfg <https://github.com/psachin/carlfg>`_
 
