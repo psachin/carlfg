@@ -1,0 +1,14 @@
+CHANGES.txt
+LICENSE.rst
+MANIFEST.in
+README.txt
+setup.py
+bin/cg
+carlfg.egg-info/PKG-INFO
+carlfg.egg-info/SOURCES.txt
+carlfg.egg-info/dependency_links.txt
+carlfg.egg-info/not-zip-safe
+carlfg.egg-info/top_level.txt
+cg/__init__.py
+cg/german.py
+docs/HOWTO.rst

@@ -15,4 +15,4 @@ Typical usage::
     from cg import german
     print german.sum(999)
 
-source code at `gitlab.com/cfg <https://gitlab.com/cfg>`_
+source code at `gitlab.com/cfg <https://gitlab.com/psachin/carlfg>`_

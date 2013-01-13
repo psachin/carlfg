@@ -1,0 +1,5 @@
+#!/usr/bin/python -tt 
+
+from cg import german
+
+print "sum of 1 to 100: %d" %(german.sum(100))
