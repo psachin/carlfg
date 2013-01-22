@@ -4,7 +4,8 @@ clarfg
 
 clebg
 -----
-Calculate Clebsch–Gordan coefficients 
+
+Calculate Clebsch–Gordan coefficients
 
 Typical usage::
 	
@@ -22,6 +23,7 @@ for graphical frontend, open the terminal and type::
 
 cg
 ----
+
 Calculate sum of all natural numbers from 1 to n using Carl Friedrich
 Guass[1777-1855, Germany] algo
 
@@ -44,7 +46,8 @@ to uninstall::
   
   pip uninstall carlfg
 
-source code at `github.com/psachin/carlfg <https://github.com/psachin/carlfg>`_
+source code at `github.com/psachin/carlfg
+<https://github.com/psachin/carlfg>`_
 
 
 
