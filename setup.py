@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='carlfg',
-      version='0.2.2',
+      version='0.3',
       description='find CG coefficients, find the sum of all natural numbers from 1 to n',
       url='https://github.com/psachin/carlfg',
       author='sachin',
