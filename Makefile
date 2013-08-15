@@ -3,9 +3,11 @@
 all: 
 	@echo "doing nothing"
 
-install:
+build:
 	@echo "building distrubution packages....."
 	sudo python setup.py sdist
+
+install:
 	@echo "installing packages....."
 	sudo python setup.py install
 
