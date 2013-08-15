@@ -33,6 +33,18 @@ Typical usage::
   print german.sum(999)
 
 
+gcd
+---
+To find GCD/GCF of two numbers by Euclid’s GCD algorithm
+
+Typical usage::
+
+  #!/usr/bin/env python
+  
+  from cg import german
+  print german.gcd(999, 56)
+
+
 Installation
 ------------
 
