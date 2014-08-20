@@ -1,5 +1,6 @@
-#!/usr/bin/env python -tt 
+#!/usr/bin/env python -tt
 
 from cg import german
 
-print "sum of 1 to 100: %d" %(german.sum(100))
+n = int(raw_input('Enter integer: '))
+print "Sum of 1 to %d: %d" %(n, german.sum(n))

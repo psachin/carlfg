@@ -12,7 +12,7 @@ def sum(n):
 
 def gcd(a, b):
     """find GCD/GCF of two numbers by Euclid’s GCD algorithm
-    
+
     Arguments:
     - `a`: first number
     - `b`: second number
